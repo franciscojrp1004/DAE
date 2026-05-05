@@ -17,11 +17,10 @@ docker compose up -d
 docker compose cp target/academics.war webserver:/opt/jboss/wildfly/standalone/deployments
 ```
 
-> ⚠️ **Nota Importante (Apenas na 1ª execução):**
-> Se é a primeira vez que estás a correr o ambiente na tua máquina, é necessário inicializar o modelo local de Inteligência Artificial. Para isso, corre o comando abaixo:
-> ```bash
-> docker exec -it projetodae-ollama-1 ollama run llama3
-> 
+⚠️ **Nota Importante (Apenas na 1ª execução):** Se é a primeira vez que estás a correr o ambiente na tua máquina, é necessário inicializar o modelo local de Inteligência Artificial. Para isso, corre o comando abaixo:
+
+```bash
+docker exec -it projetodae-ollama-1 ollama run llama3
 ```
 
 ---
