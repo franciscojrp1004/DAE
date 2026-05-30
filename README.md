@@ -1,23 +1,18 @@
 # 🎓 Projeto DAE - Engenharia Informática
-
-Este repositório contém um projeto desenvolvido em equipa (4 elementos) no âmbito de uma Unidade Curricular da licenciatura em Engenharia Informática. 
-
-O foco deste trabalho foi a construção de uma solução *full-stack* robusta, onde aplicámos os nossos conhecimentos na separação de responsabilidades entre o Backend e o Frontend. Para garantir que o ambiente de desenvolvimento fosse consistente e fácil de replicar, toda a infraestrutura da aplicação (incluindo base de dados e serviços adicionais) foi desenhada com recurso a contentores Docker. O projeto conta ainda com integração de Inteligência Artificial através do LLaMA 3.
-
+Este repositório tem o projeto que desenvolvemos (uma equipa de 4 pessoas) para uma das cadeiras da licenciatura de Engenharia Informática. 
+Basicamente, o objetivo foi montar uma solução full-stack a sério. Separamos bem as águas entre o Backend e o Frontend e usamos o **Docker** para garantir que a infraestrutura (bases de dados, serviços, etc.) corre de forma igual na máquina de qualquer pessoa sem dar dores de cabeça. Ah, e ainda integramos Inteligência Artificial no projeto a correr localmente com o **LLaMA 3**.
 ---
+## ⚙️ Como pôr o Backend a correr
 
-## ⚙️ Como executar o Backend
-
-Para arrancar com a infraestrutura, compilar o projeto e fazer o *deploy* da aplicação, abre o terminal na pasta do teu backend e corre os seguintes comandos:
+Para ligar a infraestrutura toda e a base de dados, só precisas de abrir o terminal na pasta do `backend` e correr:
 
 ```bash
 docker compose down
-docker compose up -d   
-./mvnw clean package
-docker compose cp target/academics.war webserver:/opt/jboss/wildfly/standalone/deployments
+docker compose up --build -d 
 ```
 
-⚠️ **Nota Importante (Apenas na 1ª execução):** Se é a primeira vez que estás a correr o ambiente na tua máquina, é necessário inicializar o modelo local de Inteligência Artificial. Para isso, corre o comando abaixo:
+🧠 Arrancar com a IA (LLaMA)
+⚠️ Atenção: Se é a primeira vez que estás a correr isto na tua máquina, tens de transferir e inicializar o modelo de IA. Basta correres este comando:
 
 ```bash
 docker exec -it projetodae-ollama-1 ollama run llama3
@@ -25,9 +20,9 @@ docker exec -it projetodae-ollama-1 ollama run llama3
 
 ---
 
-## 💻 Como executar o Frontend
+## 💻 Como pôr o Frontend a correr
 
-Para iniciar a interface de utilizador, abre um novo terminal na pasta do frontend, instala as dependências necessárias e arranca o servidor de desenvolvimento:
+Como o projeto utiliza o Vite para compilação de assets em tempo real, precisarás de abrir um novo terminal (mantendo o do backend aberto) também na pasta raiz do projeto, e executar:
 
 ```bash
 npm install
@@ -36,10 +31,33 @@ npm run dev
 
 ---
 
-## 📧 Testar Emails
+## 📧 Testar os Emails (Modo Dev)
 
-O sistema está configurado para intercetar o envio de emails durante o desenvolvimento (para evitar envios reais acidentais). 
+Para não mandarmos spam sem querer para emails verdadeiros enquanto estamos a programar, o sistema interceta tudo. Podes ver os emails que a app gera abrindo o MailHog no teu browser em:
+🔗 http://localhost:8025
 
-Para acederes à caixa de entrada virtual e verificares todos os emails gerados pela aplicação, basta abrires o teu navegador e acederes ao seguinte endereço:
+---
 
-🔗 **[http://localhost:8025](http://localhost:8025)**
+## 🔐 Contas de Teste
+
+Sempre que a base de dados arranca limpa, o sistema cria logo 3 utilizadores com permissões diferentes para não termos de os estar sempre a criar à mão. Podes usar estas credenciais para entrar:
+
+Admin (Acesso Total)
+
+```bash
+Username: admin
+Password: admin123
+```
+
+Gestor
+
+```bash
+Username: manager
+Password: manager123
+```
+
+Utilizador Normal (Contributor)
+```bash
+Username: contributor
+Password: contrib123
+```
