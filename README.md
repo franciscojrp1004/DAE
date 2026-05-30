@@ -12,6 +12,7 @@ docker compose up --build -d
 ```
 
 🧠 Arrancar com a IA (LLaMA)
+
 ⚠️ Atenção: Se é a primeira vez que estás a correr isto na tua máquina, tens de transferir e inicializar o modelo de IA. Basta correres este comando:
 
 ```bash
