@@ -12,9 +12,9 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     // Também podemos interceptar o $fetch se quisermos ser mais agressivos
     const originalFetch = globalThis.$fetch
-    globalThis.$fetch = async (...args) => {
+    globalThis.$fetch = (async (...args: any[]) => {
         try {
-            return await originalFetch(...args)
+            return await originalFetch(...(args as [any, any]))
         } catch (err: any) {
             if (err.response?.status === 401) {
                 // Token inválido (bloqueado user status ou expirado)
@@ -31,5 +31,5 @@ export default defineNuxtPlugin((nuxtApp) => {
             }
             throw err
         }
-    }
+    }) as any
 })

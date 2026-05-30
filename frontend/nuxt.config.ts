@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   nitro: {
     routeRules: {
       '/api/**': {
-        proxy: 'http://localhost:8080/academics/api/**'
+        proxy: process.env.BACKEND_URL ? `${process.env.BACKEND_URL}/**` : 'http://localhost:8080/academics/api/**'
       }
     }
   },
