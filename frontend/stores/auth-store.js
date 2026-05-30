@@ -66,10 +66,7 @@ export const useAuthStore = defineStore('auth', {
         }
       }
 
-      this.token = null
-      this.user = null
-      this.originalRole = null
-
+      // Limpar cookies
       const tokenCookie = useCookie('token')
       tokenCookie.value = null
       const userCookie = useCookie('user')
@@ -77,8 +74,12 @@ export const useAuthStore = defineStore('auth', {
       const originalRoleCookie = useCookie('original_role')
       originalRoleCookie.value = null
 
-      const router = useRouter()
-      router.push('/login')
+      // Redirecionar forçosamente para evitar crashes de reatividade nos componentes atuais
+      if (process.client) {
+        window.location.href = '/login'
+      } else {
+        navigateTo('/login')
+      }
     },
 
     // --- ESTA É A FUNÇÃO QUE FALTAVA ---
