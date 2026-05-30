@@ -17,7 +17,7 @@ wait_for_server
 echo "************************* >>> Setup Datasource <<< *************************"
 DB_URL="jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}"
 if [ -n "$DB_SSLMODE" ]; then
-    DB_URL="${DB_URL}?sslmode=${DB_SSLMODE}"
+    DB_URL="${DB_URL}?sslmode=${DB_SSLMODE}&sslfactory=org.postgresql.ssl.NonValidatingFactory"
 fi
 
 $JBOSS_CLI -c << EOF
