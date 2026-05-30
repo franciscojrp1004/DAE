@@ -44,5 +44,9 @@ $JBOSS_CLI -c ":shutdown"
 touch wildfly.started
 fi
 
+echo "************************* >>> Resetting Deployment Markers <<< *************************"
+rm -f $WILDFLY_HOME/standalone/deployments/academics.war.failed
+touch $WILDFLY_HOME/standalone/deployments/academics.war.dodeploy
+
 echo "************************* >>> Starting WildFly <<< *************************"
 $WILDFLY_HOME/bin/standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0 -Djboss.http.port=${PORT:-8080}
