@@ -3,7 +3,7 @@
 Este repositório contém um projeto desenvolvido em equipa (4 elementos) no âmbito da licenciatura em Engenharia Informática. O foco principal foi desenhar e implementar uma arquitetura full-stack robusta e escalável. 
 Aplicámos uma forte separação de responsabilidades (Separation of Concerns) entre o Backend e o Frontend, e recorremos ao **Docker** para contentorizar toda a infraestrutura (bases de dados, serviços móveis, etc.). Isto garante que o ambiente de desenvolvimento seja perfeitamente isolado e replicável em qualquer máquina. Destaca-se ainda a integração de um modelo de Inteligência Artificial (LLaMA 3) a correr localmente no ecossistema.
 
----
+
 
 ## ⚙️ Como executar o Backend
 
@@ -22,7 +22,7 @@ docker compose up --build -d
 docker exec -it projetodae-ollama-1 ollama run llama3
 ```
 
----
+
 
 ## 💻 Como executar o Frontend
 
@@ -33,14 +33,14 @@ npm install
 npm run dev
 ```
 
----
+
 
 ## 📧 Testar os Emails (Modo Dev)
 
 Para garantir a segurança e evitar o envio acidental de emails em ambiente de desenvolvimento, o sistema interceta todas as comunicações. Podes visualizar os emails gerados pela aplicação acedendo à interface do MailHog no teu browser:
 🔗 http://localhost:8025
 
----
+
 
 ## 🔐 Credenciais de Acesso (Dados de Teste)
 
