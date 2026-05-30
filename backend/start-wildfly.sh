@@ -4,7 +4,7 @@ export JBOSS_CLI=$WILDFLY_HOME/bin/jboss-cli.sh
 
 if [ ! -f wildfly.started ]; then
 function wait_for_server() {
-  until `$JBOSS_CLI -c "ls /deployment" &> /dev/null`; do
+  until $JBOSS_CLI -c "ls /deployment" &> /dev/null; do
     echo "Waiting"
     sleep 1
   done
