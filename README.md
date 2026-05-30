@@ -1,6 +1,6 @@
 # 🎓 Projeto DAE - Engenharia Informática
-Este repositório contém um projeto desenvolvido em equipa (4 elementos) no âmbito da licenciatura em Engenharia Informática. O foco principal foi desenhar e implementar uma arquitetura full-stack robusta e escalável. 
 
+Este repositório contém um projeto desenvolvido em equipa (4 elementos) no âmbito da licenciatura em Engenharia Informática. O foco principal foi desenhar e implementar uma arquitetura full-stack robusta e escalável. 
 Aplicámos uma forte separação de responsabilidades (Separation of Concerns) entre o Backend e o Frontend, e recorremos ao **Docker** para contentorizar toda a infraestrutura (bases de dados, serviços móveis, etc.). Isto garante que o ambiente de desenvolvimento seja perfeitamente isolado e replicável em qualquer máquina. Destaca-se ainda a integração de um modelo de Inteligência Artificial (LLaMA 3) a correr localmente no ecossistema.
 ---
 ## ⚙️ Como executar o Backend
